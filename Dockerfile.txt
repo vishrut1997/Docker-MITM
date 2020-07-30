@@ -1,0 +1,9 @@
+FROM ubuntu:18.04 #Download base image ubuntu 18.04
+RUN apt-get update #Update ubuntu software repository
+RUN apt-get install python -y #Install python
+RUN apt-get install python-pip -y #Install pip python
+RUN apt-get update #Update ubuntu software repository
+RUN pip install scapy #Install scapy
+RUN apt-get update #Update ubuntu software repository
+ADD scapy3.py /tmp #Add the attacker script to tmp directory
+CMD [ “python”, “./tmp/scapy3.py” ] #Run the script
